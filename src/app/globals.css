@@ -636,3 +636,95 @@ html.light ::selection {
 html.light .timeline-dot {
   border-color: #f8fafc;
 }
+
+/* ===== REDUCED MOTION FOR ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+
+  .gradient-text,
+  .gradient-text-accent {
+    animation: none !important;
+    background-position: 0% center !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* GPU acceleration for animated elements */
+.glass-card,
+.btn-primary,
+.btn-secondary,
+.tag {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce paint areas for fixed elements */
+nav {
+  contain: layout style;
+}
+
+/* Optimize large background elements */
+.bg-grid,
+.bg-dots {
+  will-change: auto;
+  contain: strict;
+}
+
+/* GPU acceleration helper */
+.gpu-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Content visibility for off-screen sections - lazy rendering */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Disable expensive effects on mobile for better performance */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(30, 41, 59, 0.95) !important;
+  }
+
+  .glass {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  /* Reduce animation complexity on mobile */
+  .animate-float,
+  .animate-float-delayed {
+    animation: none !important;
+  }
+}
+
+/* Reduce animation work for all users */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Limit concurrent animations */
+  .glass-card:hover::before {
+    transition: none;
+  }
+}

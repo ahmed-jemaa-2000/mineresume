@@ -44,42 +44,18 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 {/* Grid pattern */}
                 <div className="absolute inset-0 bg-grid opacity-40" />
 
-                {/* Gradient orbs */}
-                <motion.div
-                    className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full"
+                {/* Static gradient orbs - NO blur, NO animations for performance */}
+                <div
+                    className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-20"
                     style={{
-                        background: 'radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%)',
-                        filter: 'blur(60px)',
+                        background: 'radial-gradient(circle, rgba(6, 182, 212, 0.6) 0%, transparent 60%)',
                     }}
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
                 />
-                <motion.div
-                    className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full"
+                <div
+                    className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-15"
                     style={{
-                        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
-                        filter: 'blur(60px)',
+                        background: 'radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, transparent 60%)',
                     }}
-                    animate={{
-                        scale: [1.1, 1, 1.1],
-                        opacity: [0.6, 0.4, 0.6],
-                    }}
-                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                />
-                <motion.div
-                    className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full"
-                    style={{
-                        background: 'radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%)',
-                        filter: 'blur(40px)',
-                    }}
-                    animate={{
-                        x: [0, 50, 0],
-                        y: [0, -30, 0],
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
                 />
             </div>
 

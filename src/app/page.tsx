@@ -1,29 +1,63 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import SkillsSection from '@/components/SkillsSection';
-import ExperienceSection from '@/components/ExperienceSection';
-import EducationSection from '@/components/EducationSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import CertificationsSection from '@/components/CertificationsSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
 import FloatingIcons from '@/components/FloatingIcons';
 import portfolioData from '@/data/portfolio.json';
 
-export default function Home() {
+// Dynamic imports for below-fold sections (code splitting)
+const SkillsSection = dynamic(() => import('@/components/SkillsSection'), {
+    loading: () => <div className="min-h-[400px]" />,
+});
+const ExperienceSection = dynamic(() => import('@/components/ExperienceSection'), {
+    loading: () => <div className="min-h-[400px]" />,
+});
+const EducationSection = dynamic(() => import('@/components/EducationSection'), {
+    loading: () => <div className="min-h-[400px]" />,
+});
+const ProjectsSection = dynamic(() => import('@/components/ProjectsSection'), {
+    loading: () => <div className="min-h-[400px]" />,
+});
+const CertificationsSection = dynamic(() => import('@/components/CertificationsSection'), {
+    loading: () => <div className="min-h-[400px]" />,
+});
+const ContactSection = dynamic(() => import('@/components/ContactSection'), {
+    loading: () => <div className="min-h-[400px]" />,
+});
+const Footer = dynamic(() => import('@/components/Footer'));
+
+// Throttle utility for scroll events
+function useThrottledScroll(delay: number = 16) {
     const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
+        let ticking = false;
+        let lastScrollY = 0;
+
+        const updateScrollY = () => {
+            setScrollY(lastScrollY);
+            ticking = false;
+        };
+
         const handleScroll = () => {
-            setScrollY(window.scrollY);
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                requestAnimationFrame(updateScrollY);
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    return scrollY;
+}
+
+export default function Home() {
+    const scrollY = useThrottledScroll();
 
     return (
         <div className="min-h-screen relative overflow-x-hidden">

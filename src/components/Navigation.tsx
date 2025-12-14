@@ -1,32 +1,41 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo, useCallback } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import portfolioData from '@/data/portfolio.json';
 
-export default function Navigation() {
+function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('');
     const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+        let ticking = false;
 
-            // Detect active section
-            const sections = ['about', 'experience', 'education', 'projects', 'certifications', 'contact'];
-            for (const section of sections.reverse()) {
-                const element = document.getElementById(section);
-                if (element && element.getBoundingClientRect().top <= 100) {
-                    setActiveSection(section);
-                    break;
-                }
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    setScrolled(window.scrollY > 50);
+
+                    // Detect active section
+                    const sections = ['about', 'experience', 'education', 'projects', 'certifications', 'contact'];
+                    for (const section of sections.reverse()) {
+                        const element = document.getElementById(section);
+                        if (element && element.getBoundingClientRect().top <= 100) {
+                            setActiveSection(section);
+                            break;
+                        }
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
-        window.addEventListener('scroll', handleScroll);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -239,3 +248,5 @@ export default function Navigation() {
         </motion.nav>
     );
 }
+
+export default memo(Navigation);
