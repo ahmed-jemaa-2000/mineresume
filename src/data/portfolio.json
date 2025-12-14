@@ -1,0 +1,284 @@
+{
+    "personal": {
+        "name": "Ahmed Jemaa",
+        "title": "Cloud & DevOps Engineer",
+        "subtitle": "Seeking 6-Month Internship in Germany",
+        "bio": "Aspiring Cloud & DevOps Engineer with hands-on experience in AWS, Kubernetes, Terraform, and CI/CD pipelines. Completed 3 internships across Banking, Telecom, and Agriculture sectors, focusing on automation and cloud deployment. Currently seeking a mandatory 6-month internship in Germany to apply these technologies in real-world projects and further expand my DevOps expertise.",
+        "location": "Erfurt, Germany",
+        "email": "ahmedjemaa40@gmail.com",
+        "phone": "+49-15510419040",
+        "github": "https://github.com/jomaa-ahmed",
+        "linkedin": "https://linkedin.com/in/ahmedjemaa",
+        "resumeUrl": "/resume.pdf"
+    },
+    "education": [
+        {
+            "id": 1,
+            "institution": "Schmalkalden University of Applied Sciences",
+            "location": "Germany",
+            "degree": "Exchange Semester in Computer Science",
+            "period": "October 2024 – November 2025",
+            "status": "Expected",
+            "highlight": "International exchange program"
+        },
+        {
+            "id": 2,
+            "institution": "Esprit School of Engineering",
+            "location": "Tunisia",
+            "degree": "Engineering Program in Computer Science",
+            "period": "September 2022 – November 2025",
+            "status": "Expected",
+            "highlight": "Full engineering degree"
+        },
+        {
+            "id": 3,
+            "institution": "ISET Rades",
+            "location": "Tunisia",
+            "degree": "B.Sc. in Computer Science",
+            "period": "September 2019 – June 2022",
+            "status": "Completed",
+            "highlight": "Grade: Excellent"
+        }
+    ],
+    "experience": [
+        {
+            "id": 1,
+            "title": "Full-Stack and DevOps Intern",
+            "company": "Vermeg Banking",
+            "location": "Tunisia",
+            "period": "July 2024 – September 2024",
+            "description": "Engineered an AI-enhanced scheduling system and streamlined workflows",
+            "achievements": [
+                "Collaborated with a team of 5 developers to build and deploy a full-stack web application using React.js and Node.js, replacing paper-based customer management and scheduling",
+                "Built an intelligent scheduling system to manage room reservations and reduce conflicts, improving efficiency by 40%",
+                "Integrated Azure AI for document parsing, eliminating manual data entry by 50% and reducing errors",
+                "Implemented CI/CD pipelines with Jenkins, enabling automated testing and code integration, reducing bugs by 30%"
+            ],
+            "technologies": [
+                "React.js",
+                "Node.js",
+                "Azure AI",
+                "Jenkins",
+                "CI/CD"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "AWS Cloud Automation Intern",
+            "company": "JOMAA",
+            "location": "Tunisia",
+            "period": "May 2023 – July 2023",
+            "description": "Orchestrated a serverless application using AWS services",
+            "achievements": [
+                "Teamed up with one other developer to design and implement a serverless raffle system using AWS Lambda, API Gateway, and DynamoDB, automating participant management and winner selection",
+                "Streamlined front-end deployment by automating S3 hosting with CloudFront caching, improving availability and reducing manual maintenance",
+                "Configured IAM roles, VPC networking, and CloudWatch monitoring to enhance security, enforce access control, and enable real-time system tracking"
+            ],
+            "technologies": [
+                "AWS Lambda",
+                "API Gateway",
+                "DynamoDB",
+                "S3",
+                "CloudFront",
+                "CloudWatch",
+                "IAM",
+                "VPC"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Web Developer IoT Intern",
+            "company": "Orange Fab",
+            "location": "Tunisia",
+            "period": "February 2022 – June 2022",
+            "description": "Created an IoT-driven web solution for hydroponics management",
+            "achievements": [
+                "Partnered with 2 team members to develop a web application using Angular and Spring Boot, automating hydroponic system monitoring and reducing water consumption by 90%",
+                "Integrated IoT sensors for real-time data collection and intelligent adjustments, improving crop yield by 20%"
+            ],
+            "technologies": [
+                "Angular",
+                "Spring Boot",
+                "IoT",
+                "Sensors"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "EKS Terraform AWS Project",
+            "description": "Automated the deployment of an Amazon EKS cluster using Terraform (IaC), managing state securely via AWS S3 and DynamoDB for reproducible infrastructure.",
+            "technologies": [
+                "Terraform",
+                "AWS EKS",
+                "S3",
+                "DynamoDB",
+                "Docker",
+                "Golang",
+                "Java",
+                "Python"
+            ],
+            "highlights": [
+                "Containerized 3 microservices developed in Golang, Java, and Python using Docker",
+                "Configured an Ingress Controller to optimize traffic routing and scalability"
+            ],
+            "github": "#",
+            "image": "/projects/eks-terraform.png"
+        },
+        {
+            "id": 2,
+            "title": "DevSecOps CI/CD Pipeline for Amazon EKS",
+            "description": "Automated CI/CD with Jenkins, Docker, and Terraform, deploying on Amazon EKS to handle 3 microservices.",
+            "technologies": [
+                "Jenkins",
+                "Docker",
+                "Terraform",
+                "Amazon EKS",
+                "Kubernetes RBAC"
+            ],
+            "highlights": [
+                "Configured Kubernetes RBAC for secure cluster access",
+                "Integrated a custom domain via load balancer"
+            ],
+            "github": "#",
+            "image": "/projects/devsecops.png"
+        },
+        {
+            "id": 3,
+            "title": "University Reservation System",
+            "description": "Designed a microservices-based university reservation system using Spring Boot.",
+            "technologies": [
+                "Spring Boot",
+                "Microservices",
+                "Kubernetes",
+                "Lens"
+            ],
+            "highlights": [
+                "Worked with a team of 5 to design the system architecture",
+                "Used Lens for Kubernetes to manage clusters and streamline 4 deployments"
+            ],
+            "github": "#",
+            "image": "/projects/reservation.png"
+        }
+    ],
+    "certifications": [
+        {
+            "id": 1,
+            "name": "Certified Kubernetes Application Developer (CKAD)",
+            "issuer": "The Linux Foundation",
+            "date": "February 2025",
+            "logo": "https://images.credly.com/size/340x340/images/cc8adc83-1dc6-4d57-8e20-22171247e052/blob",
+            "credentialUrl": "#"
+        },
+        {
+            "id": 2,
+            "name": "HashiCorp Certified: Terraform Associate (003)",
+            "issuer": "HashiCorp",
+            "date": "December 2024",
+            "logo": "https://images.credly.com/size/340x340/images/99289602-861e-4929-8277-773e63a2fa6f/image.png",
+            "credentialUrl": "#"
+        },
+        {
+            "id": 3,
+            "name": "AWS Certified Solutions Architect – Associate",
+            "issuer": "Amazon Web Services",
+            "date": "September 2024",
+            "logo": "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+            "credentialUrl": "#"
+        },
+        {
+            "id": 4,
+            "name": "AI-900: Azure AI Fundamentals",
+            "issuer": "Microsoft",
+            "date": "March 2024",
+            "logo": "https://images.credly.com/size/340x340/images/4136ez96-68lf-4a2e-b7da-6e92b32d1f81/azure-ai-fundamentals.png",
+            "credentialUrl": "#"
+        },
+        {
+            "id": 5,
+            "name": "AWS Certified Cloud Practitioner",
+            "issuer": "Amazon Web Services",
+            "date": "September 2023",
+            "logo": "https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+            "credentialUrl": "#"
+        }
+    ],
+    "skills": {
+        "devops": [
+            "Docker",
+            "Kubernetes",
+            "Helm",
+            "Jenkins",
+            "GitLab CI/CD",
+            "Terraform",
+            "Ansible",
+            "Nexus",
+            "Trivy"
+        ],
+        "cloud": [
+            "Amazon Web Services (AWS)",
+            "Microsoft Azure"
+        ],
+        "observability": [
+            "Prometheus",
+            "Grafana"
+        ],
+        "programming": [
+            "Python",
+            "Java",
+            "JavaScript",
+            "Bash"
+        ],
+        "frontend": [
+            "Angular",
+            "React"
+        ],
+        "backend": [
+            "Spring Boot",
+            ".NET",
+            "Node.js"
+        ],
+        "databases": [
+            "MongoDB",
+            "MySQL",
+            "PL/SQL"
+        ],
+        "versionControl": [
+            "Git",
+            "GitHub",
+            "GitLab"
+        ]
+    },
+    "achievements": [
+        {
+            "id": 1,
+            "title": "3rd Place, ENACTUS Tunisia",
+            "year": "2022",
+            "description": "National social entrepreneurship competition"
+        },
+        {
+            "id": 2,
+            "title": "Project Manager",
+            "year": "2022",
+            "description": "Led a cross-functional team of 20, focusing on social entrepreneurship"
+        }
+    ],
+    "languages": [
+        {
+            "name": "German",
+            "level": "A2 - Intermediate",
+            "note": "improving"
+        },
+        {
+            "name": "English",
+            "level": "Advanced",
+            "note": ""
+        },
+        {
+            "name": "French",
+            "level": "Advanced",
+            "note": ""
+        }
+    ]
+}
