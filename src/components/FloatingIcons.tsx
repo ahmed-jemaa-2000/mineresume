@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 interface FloatingIconsProps {
     scrollY: number;
@@ -20,9 +20,25 @@ const techLabels = [
     { name: 'Git', color: '#F05032' },
 ];
 
+// Deterministic positions for SSR - same values every time
+const initialPositions = techLabels.map((icon, index) => ({
+    ...icon,
+    x: 10 + (index * 8) % 80,
+    y: 10 + (index * 9) % 80,
+    size: 18 + (index % 5) * 3,
+    duration: 18 + (index % 4) * 5,
+    delay: index * 0.8,
+    rotation: (index % 5) * 4 - 10,
+}));
+
 export default function FloatingIcons({ scrollY }: FloatingIconsProps) {
-    const icons = useMemo(() => {
-        return techLabels.map((icon, index) => ({
+    const [icons, setIcons] = useState(initialPositions);
+    const [mounted, setMounted] = useState(false);
+
+    // Generate random positions only on client after hydration
+    useEffect(() => {
+        setMounted(true);
+        setIcons(techLabels.map((icon, index) => ({
             ...icon,
             x: 5 + Math.random() * 90,
             y: 5 + Math.random() * 90,
@@ -30,7 +46,7 @@ export default function FloatingIcons({ scrollY }: FloatingIconsProps) {
             duration: 15 + Math.random() * 20,
             delay: Math.random() * 10,
             rotation: Math.random() * 20 - 10,
-        }));
+        })));
     }, []);
 
     return (

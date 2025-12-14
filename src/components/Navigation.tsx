@@ -2,13 +2,15 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, Download, Sparkles } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download, Sun, Moon } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 import portfolioData from '@/data/portfolio.json';
 
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('');
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,15 +45,15 @@ export default function Navigation() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? 'py-2'
-                    : 'py-4'
+                ? 'py-2'
+                : 'py-4'
                 }`}
         >
             {/* Glass background */}
             <motion.div
                 className={`absolute inset-0 transition-all duration-500 ${scrolled
-                        ? 'bg-slate-900/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10'
-                        : 'bg-transparent'
+                    ? 'bg-slate-900/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10'
+                    : 'bg-transparent'
                     }`}
             />
 
@@ -88,8 +90,8 @@ export default function Navigation() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.1 * index }}
                                     className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${isActive
-                                            ? 'text-white'
-                                            : 'text-gray-400 hover:text-white'
+                                        ? 'text-white'
+                                        : 'text-gray-400 hover:text-white'
                                         }`}
                                 >
                                     {/* Active background */}
@@ -128,6 +130,27 @@ export default function Navigation() {
                                 </motion.a>
                             ))}
                         </div>
+
+                        {/* Theme Toggle */}
+                        <motion.button
+                            onClick={toggleTheme}
+                            whileHover={{ scale: 1.1, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="p-2.5 text-gray-400 hover:text-primary-400 transition-colors rounded-xl hover:bg-white/5 relative"
+                            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                        >
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={theme}
+                                    initial={{ rotate: -90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: 90, opacity: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+                                </motion.div>
+                            </AnimatePresence>
+                        </motion.button>
 
                         {/* Resume Button */}
                         <motion.a
@@ -174,8 +197,8 @@ export default function Navigation() {
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.05 }}
                                             className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeSection === item.href.slice(1)
-                                                    ? 'bg-primary-500/20 text-primary-400 border border-primary-500/30'
-                                                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                                ? 'bg-primary-500/20 text-primary-400 border border-primary-500/30'
+                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
                                                 }`}
                                         >
                                             {item.name}

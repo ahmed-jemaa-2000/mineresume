@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, MapPin, Sparkles, Download, Github, Linkedin, Mail, Phone, ExternalLink } from 'lucide-react';
 import { useRef } from 'react';
+import TypewriterText from './TypewriterText';
 
 interface HeroSectionProps {
     data: {
@@ -239,7 +240,17 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                 transition={{ delay: 0.7 }}
                                 className="text-2xl md:text-3xl font-bold text-gray-300"
                             >
-                                {data.title}
+                                <TypewriterText
+                                    texts={[
+                                        data.title,
+                                        'Cloud Automation Enthusiast',
+                                        'AWS & Kubernetes Practitioner',
+                                        'CI/CD Pipeline Builder',
+                                    ]}
+                                    typingSpeed={70}
+                                    deletingSpeed={40}
+                                    pauseDuration={2500}
+                                />
                             </motion.h2>
 
                             {/* Bio */}

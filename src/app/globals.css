@@ -11,6 +11,14 @@
   --accent-hue: 280;
 }
 
+/* Light mode variables */
+html.light {
+  --foreground-rgb: 30, 30, 40;
+  --background-start-rgb: 248, 250, 252;
+  --background-mid-rgb: 241, 245, 249;
+  --background-end-rgb: 248, 250, 252;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -525,4 +533,106 @@ button:focus-visible {
   .section-title {
     font-size: 2rem;
   }
+}
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+
+html.light body {
+  background:
+    radial-gradient(ellipse at top left, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+    linear-gradient(180deg,
+      rgb(var(--background-start-rgb)) 0%,
+      rgb(var(--background-mid-rgb)) 50%,
+      rgb(var(--background-end-rgb)) 100%);
+}
+
+/* Smooth theme transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light .glass {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.7) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+html.light .glass-card {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(248, 250, 252, 0.8) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+}
+
+html.light .glass-card:hover {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(248, 250, 252, 0.9) 100%);
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(6, 182, 212, 0.08);
+}
+
+/* Light mode text colors */
+html.light .text-gray-300,
+html.light .text-gray-400 {
+  color: #475569;
+}
+
+html.light .text-white {
+  color: #1e293b;
+}
+
+html.light .text-gray-500 {
+  color: #64748b;
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: rgba(248, 250, 252, 0.9);
+}
+
+/* Light mode tags */
+html.light .tag {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+  color: #0891b2;
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+html.light .tag:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* Light mode grids and backgrounds */
+html.light .bg-grid {
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+}
+
+html.light .bg-dots {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.15) 1px, transparent 0),
+    radial-gradient(circle at 15px 15px, rgba(139, 92, 246, 0.1) 1px, transparent 0);
+}
+
+/* Light mode selection */
+html.light ::selection {
+  background: rgba(6, 182, 212, 0.25);
+  color: #0f172a;
+}
+
+/* Light mode timeline */
+html.light .timeline-dot {
+  border-color: #f8fafc;
 }
